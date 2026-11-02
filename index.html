@@ -41,6 +41,49 @@ footer{padding:30px 0;color:var(--muted);font-size:.86rem}.foot{display:flex;jus
 </style>
 </head>
 <body>
+  <!-- Student Login Modal -->
+<div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="background: #ffffff; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); position: relative; font-family: sans-serif;">
+        <span onclick="closeLoginModal()" style="position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #666;">&times;</span>
+        
+        <h2 style="margin-top: 0; color: #0f4c5c; text-align: center; margin-bottom: 20px;">Medlite Student Login</h2>
+        
+        <form onsubmit="handleLogin(event)">
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; color: #333; font-weight: 500;">Email or Student ID</label>
+                <input type="text" id="loginEmail" required placeholder="Enter your email or ID" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; color: #333; font-weight: 500;">Password</label>
+                <input type="password" id="loginPassword" required placeholder="Enter your password" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+            </div>
+            
+            <button type="submit" style="width: 100%; background: #0f4c5c; color: white; border: none; padding: 12px; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold;">Login</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 15px; color: #666; font-size: 14px;">
+            Don't have an account? <a href="#" onclick="alert('Registration system coming soon!'); return false;" style="color: #0f4c5c; text-decoration: none; font-weight: bold;">Sign up</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    function openLoginModal() {
+        document.getElementById('loginModal').style.display = 'flex';
+    }
+
+    function closeLoginModal() {
+        document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function handleLogin(event) {
+        event.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        alert('Login successful for: ' + email);
+        closeLoginModal();
+    }
+</script>
 <header><div class="wrap nav">
   <a class="brand" href="#"><span class="logo">M</span> Medlite</a>
   <nav class="links"><a href="#courses" data-en="Courses" data-bn="কোর্সসমূহ">Courses</a><a href="#features" data-en="Why Medlite" data-bn="কেন Medlite">Why Medlite</a><a href="#about" data-en="About" data-bn="আমাদের সম্পর্কে">About</a></nav>
