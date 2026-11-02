@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b6b63">
+<title>Medlite — Medical Learning Made Easy</title>
+<style>
+:root{--green:#0b6b63;--green2:#12877b;--ink:#142b35;--muted:#60747b;--paper:#f6faf9;--line:#e3eeeb;--white:#fff;--gold:#f3b84b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.55}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-size:1.35rem;font-weight:850;letter-spacing:-.7px;color:var(--green)}
+.logo{width:39px;height:39px;border-radius:13px;background:var(--green);color:white;display:grid;place-items:center;font-weight:900;font-size:1.15rem}
+.links{display:flex;align-items:center;gap:25px;color:#476068;font-size:.94rem}
+.actions{display:flex;align-items:center;gap:10px}.lang,.login,.primary,.outline{border-radius:11px;padding:10px 15px;border:1px solid var(--line);background:white;color:var(--ink);font-weight:700}
+.primary{background:var(--green);color:white;border-color:var(--green)}.primary:hover{background:#07564f}.outline:hover,.lang:hover,.login:hover{border-color:var(--green)}
+.hero{padding:72px 0 58px;background:radial-gradient(circle at 82% 22%,#d9f1e9 0,transparent 30%),linear-gradient(120deg,#f4fbf8,#edf7f4)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green);background:#e2f3ed;border-radius:99px;padding:7px 12px;font-weight:750;font-size:.82rem}
+h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.06;letter-spacing:-2.5px;margin:20px 0}
+h1 span{color:var(--green)}.lead{font-size:1.12rem;color:var(--muted);max-width:610px}
+.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hero-note{font-size:.85rem;color:var(--muted);margin-top:16px}
+.hero-card{background:white;border:1px solid var(--line);border-radius:25px;padding:25px;box-shadow:0 22px 60px #164d4214;transform:rotate(1deg)}
+.card-top{display:flex;justify-content:space-between;align-items:center}.pill{font-size:.75rem;background:#fff3d8;color:#805a0b;padding:6px 10px;border-radius:99px;font-weight:800}
+.book-art{height:190px;margin:22px 0;border-radius:18px;background:linear-gradient(135deg,#dff4ec,#bde5d8);display:grid;place-items:center;position:relative;overflow:hidden}
+.book{width:112px;height:135px;background:#fff;border-radius:9px 15px 15px 9px;box-shadow:10px 8px 0 #0b6b6330;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--green);font-weight:900;transform:rotate(-7deg);border-left:8px solid #0b6b63}
+.book b{font-size:2.3rem}.book small{letter-spacing:2px}.stats{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px}.stat strong{display:block;font-size:1.25rem}.stat span{font-size:.82rem;color:var(--muted)}
+section{padding:66px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:27px}.section-head h2{font-size:2rem;letter-spacing:-1px;margin:0}.section-head p{color:var(--muted);margin:6px 0 0}
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.course{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.2s}.course:hover{transform:translateY(-4px);box-shadow:0 16px 35px #153d3510}
+.course-art{height:142px;display:grid;place-items:center;font-size:3.2rem}.a1{background:#e3f2ed}.a2{background:#e9edfb}.a3{background:#fff0dc}.a4{background:#f4eafa}.a5{background:#e5f1fa}
+.course-body{padding:19px}.tag{font-size:.73rem;color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.7px}.course h3{margin:7px 0;font-size:1.16rem}.desc{color:var(--muted);font-size:.9rem;min-height:48px}.meta{display:flex;justify-content:space-between;color:var(--muted);font-size:.82rem;margin:15px 0}.buy-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px}.price{font-weight:850;font-size:1.12rem}.price small{font-weight:500;color:var(--muted);font-size:.75rem}
+.features{background:#fff}.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.feature{padding:20px;border:1px solid var(--line);border-radius:16px}.feature-icon{font-size:1.6rem}.feature h3{margin:10px 0 5px;font-size:1rem}.feature p{margin:0;color:var(--muted);font-size:.88rem}
+.cta{background:var(--green);color:#fff;border-radius:24px;padding:38px;display:flex;justify-content:space-between;align-items:center;gap:25px}.cta p{color:#d2e9e5;margin:5px 0 0}.cta .primary{background:white;color:var(--green);border-color:white}
+footer{padding:30px 0;color:var(--muted);font-size:.86rem}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}
+.modal-backdrop{position:fixed;inset:0;background:#102a2acc;display:none;place-items:center;padding:18px;z-index:10}.modal-backdrop.show{display:grid}.modal{background:white;border-radius:20px;padding:26px;width:min(460px,100%);box-shadow:0 25px 80px #0003}.modal h2{margin:0 0 8px}.modal p{color:var(--muted)}.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#163c36;color:white;padding:12px 18px;border-radius:12px;display:none;z-index:20;box-shadow:0 8px 25px #0002}.toast.show{display:block}
+@media(max-width:800px){.links{display:none}.hero-grid{grid-template-columns:1fr;gap:30px}.hero{padding:48px 0}.hero-card{max-width:460px}.course-grid{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.nav{height:66px}.actions .login{display:none}.course-grid{grid-template-columns:1fr}.section-head{display:block}.cta{display:block;padding:27px}.cta .primary{margin-top:18px}section{padding:48px 0}h1{letter-spacing:-1.6px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#"><span class="logo">M</span> Medlite</a>
+  <nav class="links"><a href="#courses" data-en="Courses" data-bn="কোর্সসমূহ">Courses</a><a href="#features" data-en="Why Medlite" data-bn="কেন Medlite">Why Medlite</a><a href="#about" data-en="About" data-bn="আমাদের সম্পর্কে">About</a></nav>
+  <div class="actions"><button class="lang" id="langBtn">বাংলা</button><button class="login" id="loginBtn" data-en="Log in" data-bn="লগ ইন">Log in</button><button class="primary" id="joinBtn" data-en="Get started" data-bn="শুরু করুন">Get started</button></div>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div><span class="eyebrow" data-en="✦ Medical learning, made simpler" data-bn="✦ মেডিকেল পড়াশোনা এখন আরও সহজ">✦ Medical learning, made simpler</span>
+    <h1 data-en-html="Learn smarter.<br><span>Become better.</span>" data-bn-html="স্মার্টভাবে শেখো।<br><span>দক্ষ হয়ে ওঠো।</span>">Learn smarter.<br><span>Become better.</span></h1>
+    <p class="lead" data-en="Clear lessons, focused notes and practice questions to support your medical studies — all in one place." data-bn="মেডিকেল পড়াশোনার জন্য সহজ লেকচার, গোছানো নোট ও অনুশীলনের প্রশ্ন — সব এক জায়গায়।">Clear lessons, focused notes and practice questions to support your medical studies — all in one place.</p>
+    <div class="hero-buttons"><a class="primary" href="#courses" data-en="Explore courses →" data-bn="কোর্স দেখুন →">Explore courses →</a><a class="outline" href="#features" data-en="How it works" data-bn="যেভাবে কাজ করে">How it works</a></div>
+    <div class="hero-note" data-en="Learn at your pace • Study in Bangla & English" data-bn="নিজের গতিতে শেখো • বাংলা ও ইংরেজিতে পড়াশোনা">Learn at your pace • Study in Bangla & English</div>
+    <div class="stats"><div class="stat"><strong>5+</strong><span data-en="Learning areas" data-bn="শেখার বিষয়">Learning areas</span></div><div class="stat"><strong>24/7</strong><span data-en="Learn anytime" data-bn="যেকোনো সময় শেখো">Learn anytime</span></div><div class="stat"><strong>2</strong><span data-en="Languages" data-bn="ভাষা">Languages</span></div></div>
+  </div>
+  <div class="hero-card"><div class="card-top"><strong data-en="Your learning journey" data-bn="তোমার শেখার যাত্রা">Your learning journey</strong><span class="pill" data-en="START HERE" data-bn="এখান থেকে শুরু">START HERE</span></div><div class="book-art"><div class="book"><b>M</b><small>MEDLITE</small></div></div><strong data-en="Build strong foundations" data-bn="মজবুত ভিত্তি তৈরি করো">Build strong foundations</strong><p style="color:var(--muted);margin:5px 0 0;font-size:.9rem" data-en="Understand concepts. Practice often. Grow with confidence." data-bn="ধারণা পরিষ্কার করো। নিয়মিত অনুশীলন করো। আত্মবিশ্বাস নিয়ে এগিয়ে যাও।">Understand concepts. Practice often. Grow with confidence.</p></div>
+</div></section>
+<section id="courses"><div class="wrap"><div class="section-head"><div><span class="tag" data-en="OUR COURSES" data-bn="আমাদের কোর্স">OUR COURSES</span><h2 data-en="Explore popular courses" data-bn="জনপ্রিয় কোর্সগুলো দেখো">Explore popular courses</h2><p data-en="Start with the subjects that matter most." data-bn="গুরুত্বপূর্ণ বিষয়গুলো দিয়ে শুরু করো।">Start with the subjects that matter most.</p></div><span class="tag" data-en="DEMO COURSE CATALOG" data-bn="নমুনা কোর্স তালিকা">DEMO COURSE CATALOG</span></div>
+<div class="course-grid" id="courseGrid"></div></div></section>
+<section class="features" id="features"><div class="wrap"><div class="section-head"><div><span class="tag" data-en="MADE FOR STUDENTS" data-bn="শিক্ষার্থীদের জন্য">MADE FOR STUDENTS</span><h2 data-en="Everything to study with confidence" data-bn="আত্মবিশ্বাসের সঙ্গে পড়ার সবকিছু">Everything to study with confidence</h2><p data-en="A simple learning space designed around your study routine." data-bn="তোমার পড়ার রুটিন মাথায় রেখে তৈরি সহজ learning platform।">A simple learning space designed around your study routine.</p></div></div>
+<div class="feature-grid">
+<div class="feature"><div class="feature-icon">🎥</div><h3 data-en="Video lessons" data-bn="ভিডিও লেকচার">Video lessons</h3><p data-en="Learn complex topics step by step." data-bn="জটিল বিষয় ধাপে ধাপে শেখো।">Learn complex topics step by step.</p></div>
+<div class="feature"><div class="feature-icon">📘</div><h3 data-en="Study notes" data-bn="স্টাডি নোট">Study notes</h3><p data-en="Revise with organised downloadable notes." data-bn="গোছানো নোট দিয়ে সহজে রিভিশন দাও।">Revise with organised downloadable notes.</p></div>
+<div class="feature"><div class="feature-icon">🧠</div><h3 data-en="MCQ practice" data-bn="MCQ অনুশীলন">MCQ practice</h3><p data-en="Test your understanding as you learn." data-bn="পড়ার সঙ্গে সঙ্গে নিজের প্রস্তুতি যাচাই করো।">Test your understanding as you learn.</p></div>
+<div class="feature"><div class="feature-icon">📱</div><h3 data-en="Learn anywhere" data-bn="যেকোনো জায়গায় শেখো">Learn anywhere</h3><p data-en="Study on mobile, tablet or computer." data-bn="মোবাইল, ট্যাব বা কম্পিউটারে পড়াশোনা করো।">Study on mobile, tablet or computer.</p></div>
+</div></div></section>
+<section id="about"><div class="wrap"><div class="cta"><div><h2 data-en="Make medical learning feel lighter." data-bn="মেডিকেল পড়াশোনাকে আরও সহজ করি।" style="margin:0;font-size:1.8rem">Make medical learning feel lighter.</h2><p data-en="Join Medlite and take the next step in your learning journey." data-bn="Medlite-এর সঙ্গে শেখার পথে আরও এক ধাপ এগিয়ে যাও।">Join Medlite and take the next step in your learning journey.</p></div><button class="primary" id="ctaBtn" data-en="I'm interested →" data-bn="আমি আগ্রহী →">I'm interested →</button></div></div></section>
+</main>
+<footer><div class="wrap foot"><strong style="color:var(--green)">Medlite — Medical Learning Made Easy</strong><span data-en="© 2026 Medlite. Demo website — course sales and payments are not connected yet." data-bn="© ২০২৬ Medlite। এটি ডেমো ওয়েবসাইট — কোর্স বিক্রি ও পেমেন্ট এখনো যুক্ত হয়নি।">© 2026 Medlite. Demo website — course sales and payments are not connected yet.</span></div></footer>
+<div class="modal-backdrop" id="modal"><div class="modal"><h2 id="modalTitle">Welcome to Medlite</h2><p id="modalText">This is a preview of the first version. Student accounts, course access and secure payments can be connected in the next development stage.</p><div class="modal-actions"><button class="outline" id="closeModal">Close</button><button class="primary" id="modalOk">Okay</button></div></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const courses=[
+ {icon:"🦴",cls:"a1",tag:"ANATOMY",en:"Human Anatomy",bn:"হিউম্যান অ্যানাটমি",descEn:"Learn the structure of the human body with clear explanations.",descBn:"সহজ ব্যাখ্যার মাধ্যমে মানবদেহের গঠন শেখো।",lessons:"42 lessons",price:"৳ 1,200"},
+ {icon:"❤️",cls:"a2",tag:"PHYSIOLOGY",en:"Human Physiology",bn:"হিউম্যান ফিজিওলজি",descEn:"Understand how the body works, system by system.",descBn:"শরীরের প্রতিটি অঙ্গতন্ত্র কীভাবে কাজ করে তা শেখো।",lessons:"36 lessons",price:"৳ 1,000"},
+ {icon:"🧪",cls:"a3",tag:"BIOCHEMISTRY",en:"Medical Biochemistry",bn:"মেডিকেল বায়োকেমিস্ট্রি",descEn:"Build your foundation in the chemistry of life.",descBn:"জীবদেহের রাসায়নিক প্রক্রিয়ার ভিত্তি মজবুত করো।",lessons:"28 lessons",price:"৳ 900"},
+ {icon:"🔬",cls:"a4",tag:"HISTOLOGY",en:"Basic Histology",bn:"বেসিক হিস্টোলজি",descEn:"Explore tissues and cells through guided lessons.",descBn:"সহজ লেকচারের মাধ্যমে কোষ ও টিস্যু শেখো।",lessons:"24 lessons",price:"৳ 800"},
+ {icon:"📝",cls:"a5",tag:"EXAM PREP",en:"Medical MCQ & Model Test",bn:"মেডিকেল MCQ ও মডেল টেস্ট",descEn:"Practise questions and check your exam readiness.",descBn:"প্রশ্ন অনুশীলন করো এবং পরীক্ষার প্রস্তুতি যাচাই করো।",lessons:"500+ questions",price:"৳ 500"}
+];
+let language="en";
+const grid=document.getElementById("courseGrid"),modal=document.getElementById("modal");
+function renderCourses(){grid.innerHTML=courses.map((c,i)=>`<article class="course"><div class="course-art ${c.cls}">${c.icon}</div><div class="course-body"><span class="tag">${c.tag}</span><h3>${language==="en"?c.en:c.bn}</h3><p class="desc">${language==="en"?c.descEn:c.descBn}</p><div class="meta"><span>▶ ${c.lessons}</span><span>★ 4.9</span></div><div class="buy-row"><span class="price">${c.price} <small>${language==="en"?"one-time":"এককালীন"}</small></span><button class="primary" onclick="showCourse(${i})">${language==="en"?"View course":"কোর্স দেখুন"}</button></div></div></article>`).join("")}
+function translate(){document.documentElement.lang=language;document.querySelectorAll("[data-en]").forEach(el=>el.textContent=el.dataset[language]);document.querySelectorAll("[data-en-html]").forEach(el=>el.innerHTML=el.dataset[language+"Html"]);document.getElementById("langBtn").textContent=language==="en"?"বাংলা":"English";renderCourses()}
+function openModal(title,text){document.getElementById("modalTitle").textContent=title;document.getElementById("modalText").textContent=text;modal.classList.add("show")}
+function showCourse(i){const c=courses[i];openModal(language==="en"?c.en:c.bn,language==="en"?"This course is a sample listing. Secure checkout and lesson access will be added when the website backend is connected.":"এটি একটি নমুনা কোর্স। ওয়েবসাইটে backend যুক্ত হলে নিরাপদ পেমেন্ট ও লেসন অ্যাক্সেস চালু হবে।")}
+document.getElementById("langBtn").onclick=()=>{language=language==="en"?"bn":"en";translate()};
+const welcome=()=>openModal(language==="en"?"Welcome to Medlite":"Medlite-এ স্বাগতম",language==="en"?"This is the first website preview. Student login, course access and secure payments are not active yet.":"এটি ওয়েবসাইটের প্রথম preview। Student login, course access ও secure payment এখনো চালু হয়নি।");
+["loginBtn","joinBtn","ctaBtn"].forEach(id=>document.getElementById(id).onclick=welcome);
+document.getElementById("closeModal").onclick=()=>modal.classList.remove("show");document.getElementById("modalOk").onclick=()=>modal.classList.remove("show");
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove("show")};
+renderCourses();
+</script>
+</body></html>
